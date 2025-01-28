@@ -2,9 +2,21 @@
 //
 
 #include <iostream>
+#include "rproperty.h"
 
-int main()
+class Test
 {
-    std::cout << "Hello World!\n";
-}
 
+public:
+    Test() :field2(1, [](int val) {return ++val; }) {};
+    rproperty<int> field = 1;
+    rproperty<int> field2;//(1, [](int val) {return val++; });
+    //rproperty<int> field2=rproperty(1, [](int val)->int {});
+};
+
+int main() {
+    Test test;
+    std::cout << test.field << std::endl;
+    std::cout << test.field2 << std::endl;
+    return 0;
+}
