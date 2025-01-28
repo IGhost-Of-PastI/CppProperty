@@ -9,8 +9,8 @@ class Test
 
 public:
     Test() :field2(1, [](int val) {return ++val; }) {};
-    rproperty<int> field = 1;
-    rproperty<int> field2;//(1, [](int val) {return val++; });
+    rproperty<int,0,Test> field = 1;
+    rproperty<int, 0, Test> field2;//(1, [](int val) {return val++; });
     //rproperty<int> field2=rproperty(1, [](int val)->int {});
 };
 
