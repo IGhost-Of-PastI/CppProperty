@@ -127,15 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CppProperty.cpp" />
-    <ClCompile Include="rproperty.cpp" />
-    <ClCompile Include="rwproperty.cpp" />
-    <ClCompile Include="wproperty.cpp" />
+    <ClCompile Include="example.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="rproperty.h" />
-    <ClInclude Include="rwproperty.h" />
-    <ClInclude Include="wproperty.h" />
+    <ClInclude Include="property.hpp" />
+    <ClInclude Include="property_types.h" />
+    <ClInclude Include="rproperty.hpp" />
+    <ClInclude Include="rwproperty.hpp" />
+    <ClInclude Include="wproperty.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
