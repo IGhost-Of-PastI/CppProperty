@@ -1,6 +1,6 @@
 #pragma once
 #include <boost/signals2.hpp>
-#include <functional>
+//#include <functional>
 #include "property_types.h"
 
 template<class T, class friendClass>
@@ -9,7 +9,7 @@ class wproperty final
 public:
 	friend typename friendClass;
 
-	wproperty(T val, setter_t setter = nullptr);
+	wproperty(T val, setter_t<T> setter = nullptr);
 	wproperty(const wproperty& other);
 	wproperty(wproperty&& other) noexcept;
 
@@ -17,10 +17,10 @@ public:
 	wproperty& operator=(const T& val);
 	wproperty& operator=(T&& val) noexcept;
 
-	on_changed_t onChanged;
+	on_changed_t<T> onChanged;
 private:
-	void _setSetter(setter_t setter);
-	setter_t _setter;
+	void _setSetter(setter_t<T> setter);
+	setter_t<T> _setter;
 	T _value;
 };
 

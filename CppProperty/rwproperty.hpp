@@ -1,5 +1,5 @@
 #pragma once
-#include <functional>
+//#include <functional>
 #include <boost/signals2.hpp>
 #include "property_types.h"
 
@@ -9,7 +9,7 @@ class rwproperty
 public:
 	friend typename friendClass;
 
-	rwproperty(T val = defaultVal, getter_t getter = nullptr, setter_t setter = nullptr);
+	rwproperty(T val , getter_t<T> getter = nullptr, setter_t<T> setter = nullptr);
 	rwproperty(const rwproperty& other);
 	rwproperty(rwproperty&& other) noexcept;
 
@@ -19,13 +19,13 @@ public:
 
 	operator T() const;
 
-	on_changed_t onChanged;
+	on_changed_t<T> onChanged;
 private:
-	void _setSetter(setter_t setter);
-	void _setGetter(getter_t getter);
+	void _setSetter(setter_t<T> setter);
+	void _setGetter(getter_t<T> getter);
 	T _value;
-	setter_t _setter;
-	getter_t _getter;
+	setter_t<T> _setter;
+	getter_t<T> _getter;
 };
 
 template<class T, class friendClass>

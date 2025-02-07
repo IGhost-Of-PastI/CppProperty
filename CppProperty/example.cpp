@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include "rproperty.h"
+#include "property.hpp"
 
 class Test
 {
@@ -10,7 +10,9 @@ class Test
 public:
     Test() :field2(1, [](int val) {return ++val; }) {};
     rproperty<int,Test> field = 1;
-    rproperty<int, Test> field2;//(1, [](int val) {return val++; });
+    rproperty<int, Test> field2;
+    //wproperty<int, Test> wfield;
+    //rwproperty<int, Test> rwfield;//(1, [](int val) {return val++; });
     //rproperty<int> field2=rproperty(1, [](int val)->int {});
 };
 
